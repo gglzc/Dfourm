@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    username: admin
+    password: test
+    url: jdbc:postgresql://0.0.0.0:5435/fourm
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+server:
+  error:
+    include-binding-errors: always
+    include-message: always
+
+
+

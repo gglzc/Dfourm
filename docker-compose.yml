@@ -1,0 +1,39 @@
+version: '3.7'
+services:
+  db:
+    container_name: postgres_javacontainer
+    image: postgres
+    restart: always
+    environment:
+        POSTGRES_DB: fourm
+        POSTGRES_USER: admin
+        POSTGRES_PASSWORD: test
+    ports:
+      - "5435:5432"
+    volumes:
+      - postgres-db:/Users/laishengqi/javaweb/postgresdb
+
+
+  nginx:
+    container_name: nginx_javacontainer
+    image: nginx:latest
+    restart: always
+    ports:
+      - "8000:80"
+    volumes:
+      - nginx-vol:/Users/laishengqi/javaweb/nginx
+
+  redis:
+    container_name: redis_javacontainer
+    image: redis:latest
+    restart: always
+    ports:
+      - "6375:6379"
+    volumes:
+      - redis-vol:/Users/laishengqi/javaweb/redis
+
+
+volumes:
+  postgres-db:
+  nginx-vol:
+  redis-vol:
